@@ -144,7 +144,6 @@ namespace Digital_ATM
 
     static void Main(string[] args)
         {
-            BalanceInquiry();
             Register();
             if(registerationSuccess == true)
             {
@@ -180,7 +179,7 @@ namespace Digital_ATM
                                     break;
                             }
                         }
-                    } while (mainmenuParse == false && mainMenuChoice > 4);
+                    } while (mainmenuParse == false && mainMenuChoice != 4);
 
                 }
 
