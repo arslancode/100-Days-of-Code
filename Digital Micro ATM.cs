@@ -179,6 +179,10 @@ namespace Digital_ATM
                                     break;
                             }
                         }
+                        else
+                        {
+                            Console.WriteLine("Please enter a valid numeric option no!");
+                        }
                     } while (mainmenuParse == false && mainMenuChoice != 4);
 
                 }
