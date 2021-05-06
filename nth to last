@@ -1,0 +1,82 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct Node
+{
+	int data;
+	struct Node *next;
+};
+struct Node* head = NULL;
+void insert(int value){
+	struct Node* new_node;
+	new_node = (struct Node*) malloc(sizeof(struct Node));
+	new_node->data = value;
+	new_node -> next = head;
+	head = new_node;
+}
+void find_n()				
+{
+	int pos;
+	cout<<"Enter position from last"<<endl;
+	cin>>pos;
+	struct Node* ptr = head;
+	int len;
+	while(ptr != NULL){
+		ptr = ptr->next;
+		len++;
+	}
+	if(pos>len){
+		cout<<"Invalid position"<<endl;
+	}
+	else{
+		ptr = head;
+		for(int i = 1; i<(len-pos)+1 ; i++){
+			ptr = ptr->next;
+		}
+		cout<<ptr->data<<endl;
+	}
+}
+void display(){
+	struct Node* temp;
+	temp = head;
+	while(temp != NULL){
+		cout<<temp->data<<"	";
+		temp = temp->next;
+	}
+	cout<<endl;
+}
+int main(){
+	int value,ch;													
+	cout<<"1 to insert"<<endl;
+	cout<<"2 to display"<<endl;
+	cout<<"3 find nth to last"<<endl;
+	cout<<"4 to exit"<<endl;
+	do{
+		cout<<"Enter choice"<<endl;
+		cin>>ch;
+		switch(ch){
+			case 1:{
+				cout<<"Enter value"<<endl;
+				cin>>value;
+				insert(value);
+				break;
+			}
+			case 2:{
+				display();
+				break;
+			}
+			case 3:{
+				find_n();	
+				break;
+			}
+			case 4:{
+				cout<<"Exitting"<<endl;
+				break;
+			}
+			default:{
+				cout<<"Invalid input, Try again"<<endl;
+				break;
+			}
+		}
+	}while(ch != 4);
+	return 0;
+}
